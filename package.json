@@ -1,5 +1,6 @@
 {
   "name": "js-golden-hour",
+  "main": "./src/GoldenHourCalc.js",
   "version": "1.0.0",
   "description": "Get golden hour times by zipcode",
   "main": "src/app.js",
