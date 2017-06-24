@@ -1,0 +1,22 @@
+{
+  "name": "js-golden-hour",
+  "version": "1.0.0",
+  "description": "Get golden hour times by zipcode",
+  "main": "src/app.js",
+  "dependencies": {
+    "chai-datetime": "^1.4.1",
+    "mocha": "^3.4.2",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "suncalc": "^1.8.0",
+    "zipcode-to-timezone": "^0.0.8",
+    "zipcodes": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "Ryan Batchelder - ryanbatch@gmail.com",
+  "license": "ISC"
+}
