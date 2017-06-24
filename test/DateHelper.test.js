@@ -1,4 +1,3 @@
-"use strict"
 const chai = require('chai')
 const assert = chai.assert
 const DateHelper = require('../src/DateHelper.js')
@@ -17,5 +16,9 @@ describe('date helper', () => {
 
     it('should return 5 days from now', () => {
         assert.equalDate(DateHelper.fromToday(5).toDate(), moment().add(5, 'days').toDate())
+    })
+
+    it('should return 2 days in the past', () => {
+        assert.equalDate(DateHelper.fromToday(-2).toDate(), moment().subtract(2, 'days').toDate())
     })
 })

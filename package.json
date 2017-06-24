@@ -19,5 +19,5 @@
     "test": "./node_modules/mocha/bin/mocha"
   },
   "author": "Ryan Batchelder - ryanbatch@gmail.com",
-  "license": "ISC"
+  "license": "MIT"
 }
