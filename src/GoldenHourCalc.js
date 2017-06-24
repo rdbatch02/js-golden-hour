@@ -11,12 +11,18 @@ class GoldenHourCalc {
         this.location.timezone = tzlookup.lookup(this.zipCode)
         this.sunCalcData = SunCalc.getTimes(DateHelper.today(), this.location.latitude, this.location.longitude)
     }
-    goldenHourStart() {        
-        return moment(this.sunCalcData.goldenHour).tz(this.location.timezone)
+    goldenHourMorning() {        
+        return {
+            "start": moment(this.sunCalcData.sunrise).tz(this.location.timezone),
+            "end": moment(this.sunCalcData.goldenHourEnd).tz(this.location.timezone)
+        }
     }
 
-    goldenHourEnd() {
-        return moment(this.sunCalcData.goldenHourEnd).tz(this.location.timezone)
+    goldenHourEvening() {
+        return {
+            "start": moment(this.sunCalcData.goldenHour).tz(this.location.timezone),
+            "end": moment(this.sunCalcData.sunset).tz(this.location.timezone)
+        }
     }    
 }
 
