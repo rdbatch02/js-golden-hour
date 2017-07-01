@@ -7,19 +7,19 @@ chai.use(require('chai-datetime'))
 
 const jan1Times = {
     morning: {
-        start: moment([2017, 0, 1, 7, 14]).tz('America/New_York'),
-        end: moment([2017, 0, 1, 7, 59]).tz('America/New_York')
+        start: moment([2017, 0, 1, 7, 14]),
+        end: moment([2017, 0, 1, 7, 59])
     },
     evening: {
-        start: moment([2017, 0, 1, 15, 38]).tz('America/New_York'),
-        end: moment([2017, 0, 1, 16, 23]).tz('America/New_York')
+        start: moment([2017, 0, 1, 15, 38]),
+        end: moment([2017, 0, 1, 16, 23])
     }
 }
 
 describe('GoldenHourCalc', () => {
     let goldenHourCalc
     beforeEach('setup', () => {
-        const dateOffsetSinceJan1 = moment([2017, 0, 1]).diff(moment().tz('America/New_York'), 'days')
+        const dateOffsetSinceJan1 = moment([2017, 0, 1]).tz('America/New_York').diff(moment().tz('America/New_York'), 'days')        
         goldenHourCalc = new GoldenHourCalc('02116', dateOffsetSinceJan1)
     })
     it('should return evening golden hour start time', () => {        
