@@ -1,25 +1,25 @@
 const chai = require('chai')
 const assert = chai.assert
 const GoldenHourCalc = require('../src/GoldenHourCalc.js')
-const moment = require('moment')
+const moment = require('moment-timezone')
 
 chai.use(require('chai-datetime'))
 
 const jan1Times = {
     morning: {
-        start: moment([2017, 0, 1, 7, 14]),
-        end: moment([2017, 0, 1, 7, 59])
+        start: moment([2017, 0, 1, 7, 14]).tz('America/New_York'),
+        end: moment([2017, 0, 1, 7, 59]).tz('America/New_York')
     },
     evening: {
-        start: moment([2017, 0, 1, 15, 38]),
-        end: moment([2017, 0, 1, 16, 23])
+        start: moment([2017, 0, 1, 15, 38]).tz('America/New_York'),
+        end: moment([2017, 0, 1, 16, 23]).tz('America/New_York')
     }
 }
 
 describe('GoldenHourCalc', () => {
     let goldenHourCalc
     beforeEach('setup', () => {
-        const dateOffsetSinceJan1 = moment([2017, 0, 1]).diff(moment(), 'days')        
+        const dateOffsetSinceJan1 = moment([2017, 0, 1]).diff(moment().tz('America/New_York'), 'days')
         goldenHourCalc = new GoldenHourCalc('02116', dateOffsetSinceJan1)
     })
     it('should return evening golden hour start time', () => {        
