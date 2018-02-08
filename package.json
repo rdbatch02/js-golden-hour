@@ -1,9 +1,8 @@
 {
   "name": "js-golden-hour",
   "main": "./src/GoldenHourCalc.js",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Get golden hour times by zipcode",
-  "main": "src/app.js",
   "dependencies": {
     "chai-datetime": "^1.4.1",
     "mocha": "^3.4.2",

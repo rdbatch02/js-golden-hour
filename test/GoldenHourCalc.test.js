@@ -41,4 +41,8 @@ describe('GoldenHourCalc', () => {
         const evening = goldenHourCalc.goldenHourEvening()
         assert.equalTime(evening.end.toDate(), jan1Times.evening.end.toDate())
     })
+
+    it('should throw an error with invalid zipcode', () => {        
+        assert.throws(() => new GoldenHourCalc('00000'), Error, "Invalid Zipcode")
+    })
 })

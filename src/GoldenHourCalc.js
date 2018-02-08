@@ -7,7 +7,10 @@ const DateHelper = require('./DateHelper.js')
 class GoldenHourCalc {    
     constructor(zipCode, dateOffset = 0) {
         this.zipCode = zipCode
-        this.location = zipcodes.lookup(this.zipCode)
+        this.location = zipcodes.lookup(this.zipCode)        
+        if (this.location === undefined) {            
+            throw Error("Invalid Zipcode")
+        }
         this.location.timezone = tzlookup.lookup(this.zipCode)
         this.sunCalcData = SunCalc.getTimes(DateHelper.fromToday(dateOffset), this.location.latitude, this.location.longitude)
     }
